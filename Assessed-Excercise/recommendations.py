@@ -36,12 +36,14 @@ def read_files(books_filename="books.txt", ratings_filename="ratings.txt") -> di
 
 
 # II.  GET INPUT
-def get_input() -> list:
+def get_input(output_filename="output.txt") -> tuple:
     """
     Get the username and number of recommendations from the user,
-    using command line and return it as a tuple: (username, rcm_n)
+    using command line and return it as a tuple: (username, rcm_n).
     """
-    pass
+    username = input("Username: ")
+    rcm_n = int(input("Reccomendation number: "))
+    return(username, rcm_n)
 
 
 # III. ADD USER
@@ -80,4 +82,4 @@ def recommendations():
 
 if __name__ == "__main__":
     db = read_files()
-    print(db)
+    user_input = get_input() 
