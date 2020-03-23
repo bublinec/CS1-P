@@ -4,37 +4,35 @@ def read_books(books_filename="books.txt") -> list:
     with open(books_filename) as f:
         for line in f:
             book = line.strip().split(',')  # to list
-            book = (book[0], book[1])  # to tupleer
+            book = (book[0], book[1])  # to tuple
             books.append(book)
     return books
 
 
-def read_users(books: list, users_filename="ratings.txt") -> dict:
-    users = {}
-    with open(users_filename) as f:
+def read_ratings(books: list, ratings_filename="ratings.txt") -> dict:
+    ratings = {}
+    with open(ratings_filename) as f:
         while True:
             username = f.readline().strip()
+            # cheack EOF
             if not username:
-                break  # EOF
+                break
             ratings = f.readline().strip().split(' ')
             # convert ratings list to dict
             ratings = {books[i]: int(ratings[i]) for i in range(len(ratings)) if ratings[i] != '0'}
-            users[username] = ratings
-    return users
+            ratings[username] = ratings
+    return ratings
 
 
-def get_db(books_filename="books.txt", users_filename="ratings.txt") -> dict:
+def read_files(books_filename="books.txt", ratings_filename="ratings.txt") -> dict:
     """Read the data from files and return the database."""
     books = read_books()
-    users = read_users(books)
+    ratings = read_ratings(books)
     db = {
         'books': books,
-        'users': users
+        'ratings': ratings
     }
     return db
-
-
-
 
 
 # II.  GET INPUT
@@ -81,5 +79,5 @@ def recommendations():
 
 
 if __name__ == "__main__":
-    db = get_db()
+    db = read_files()
     print(db)

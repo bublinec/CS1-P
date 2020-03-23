@@ -4,35 +4,31 @@
 I.   READ DATA
     
     All the data are stored in files and it would be inefficient to work with files all the time.
-    So the first step when we run the program is to retrieve the data from files and store
-    it in appropriate data structures in the memory. This will be handled by the function get_data.
+    So the first step when we run the program is to read the data from files and store
+    it in appropriate data structures in the memory.
 
     Data Structures:
-
+    
         I decided to create a small database using dictionary for this problem. 
         The dictionary has two pairs (tables):
 
-        books : list of lists, where each book is represented as list, 
+        books : list of tuples, where each book is represented as a tuple, 
                 containning two strings: author, title. Author and the title 
                 are two separate pieces of information about the book,
                 therefore it is a good practice to keep it sepearete from begining
 
+        ratings : dictionary with the pairs:  username : ratings 
+                  ratings is also a dictionary with pairs (title : rating)
 
-        users : dictionary with the pairs:  username : ratings 
-                ratings is also a dictionary with pairs (title : rating)
-
-                It is much clearer to keep ratings in a dictionary.
-                We also avoid redundacy in case the there are many books
-                and the user has red just a few of them. 
-                Also we can take the advantage of quick retrieval.
-
+                  It is much clearer to keep ratings in a dictionary.
+                  We also avoid redundacy in case the there are many books
+                  and the user has red just few of them. 
+                  Also we can take the advantage of quick lookup.
 
         NOTE:
         It would be more appropriate to choose more complex data structures
         if we were cosidering to add more features in the future.
-
         The best practice would be to represent each user and each book as an OBJECT.
-
         However, in our case with limited functionality, this is not necessary and it would only cause
         confusion (If we wanted to really create a usable app we would use a real database anyway).
 
