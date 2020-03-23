@@ -8,8 +8,10 @@ I.   READ DATA
     it in appropriate data structures in the memory.
 
     Data Structures:
-    
-        I decided to create a small database using dictionary for this problem. 
+
+        I decided to create a small database using dictionary for this problem,
+        to keep everything in the same place, so I need to pass only one varibale.
+        It is also much better, if we were considering to add more info in the future. 
         The dictionary has two pairs (tables):
 
         books : list of tuples, where each book is represented as a tuple, 
@@ -38,9 +40,6 @@ II.  GET INPUT
     The second step is to actually find out the user's intentions - the input/command.
     First we ask for the username, and the number of recommendations required. 
     
-    * This is handled by get_input function (operates through the command line interface).
-    * Function print_input prints the comunication to the output file
-
     If the user is already in the database, we skipt the III. step and proceed to the step IV.
 
 
@@ -49,29 +48,20 @@ III. ADD USER
     In order to apply the similarity algorithm we first need to get the ratings
     from the new user and add it into the database and the ratings file. 
 
-    * This is handled by add_user function.
-
-
 IV.  CALCULATE SIMILARITY
 
     Calculate this similarity with each user, using the similarity algorithm
     and store it in a list.
 
-    * This is handled by the function calculate_similarity.
-    * This will also require the to import dot_product function.
-    * Finally function print_similarity prints it into the console and outpur file.
-
 
 V.   GET RECOMMENDATIONS
 
     Get the recommendations based on the similarity list.
-    * This is handeld by get_rcm function.
-    * Finally function print_rcm prints it into teh console and the output file.
 
 
-Whole program is encapsuled in a recommendation function (procedure).
+MAIN FUNCTION
 
-
+    Whole program is encapsuled in a recommendation function (procedure).
 
 
 3. Are there any parts of your code that you think are difficult to understand? if yes, explain them here. 

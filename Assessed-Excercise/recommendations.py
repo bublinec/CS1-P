@@ -80,37 +80,49 @@ def add_user(username: str, db: dict, ratings_filename="ratings.txt"):
     # add user to ratings file
     with open(ratings_filename, 'a') as f:
         f.write(username + '\n' + ' '.join(ratings_l) + '\n')
-        
+
     # add user to database
     db['ratings'][username] = ratings_l_to_d(ratings_l, db['books'])
 
 
-
 # IV.  CALCULATE SIMILARITY
-def dot_prodcut(a: list, b: list) -> int:
-    """Return the dot product of vectors a and b."""
-    pass
-
-
-def calculate_similarity(username: str, db="db") -> list:
+def calculate_similarity_l(username: str, db) -> list:
     """Return list of similarity of the user with each other user in db."""
-    pass
+    similarity_l = []
+    ratings = db['ratings'][username]  # user we are calculating for
+    # loop over each user in the dict of users
+    for cur_username, cur_ratings in db['ratings'].items():
+        if cur_username == username:
+            continue
+        similarity = 0
+        # loop over each book in dict of ratings
+        for cur_book, cur_book_rating in cur_ratings.items():
+            # if they both red the book calculate the similarity
+            if cur_book in ratings:
+                similarity += cur_book_rating * ratings[cur_book]
+        # finally append the tuple (user, similarity) to the list
+        similarity_l.append((cur_username, similarity))
+    similarity_l.sort(key=lambda x: x[1])
+    return similarity_l
 
 
 # V.   CALCULATE RECCOMENDATIONS
-def calculate_rcm(similarity: list, db="db") -> dict:
-    """Crete the dict of books recommended by various users, based on the similarity."""
-    pass
+def calculate_rcm(similarity_l: list, db) -> dict:
+    """Crete the dict of books recommended by various users,
+     based on the similarity list.
+     """
+
+
 
 # MAIN FUNCTION
 def recommendations():
-    pass
-
-
-
-
-if __name__ == "__main__":
     db = read_files()
     user_input = get_input() 
     if user_input[0] not in db['ratings']:
-        add_user(user_input[0], db)
+    add_user(user_input[0], db)
+    similarity_l = calculate_similarity_l(user_input[0], db)
+    print(similarity_l)
+
+
+if __name__ == "__main__":
+    recommendations()
