@@ -1,3 +1,6 @@
+from random import randrange
+
+
 # I.   READ FILES
 def read_books(books_filename="books.txt") -> list:
     books = []
@@ -9,6 +12,10 @@ def read_books(books_filename="books.txt") -> list:
     return books
 
 
+def ratings_l_to_d(ratings_l: list, books: list) -> dict:
+    return {books[i]: int(ratings_l[i]) for i in range(len(ratings_l)) if ratings_l[i] != '0'}
+
+
 def read_ratings(books: list, ratings_filename="ratings.txt") -> dict:
     ratings = {}
     with open(ratings_filename) as f:
@@ -17,10 +24,8 @@ def read_ratings(books: list, ratings_filename="ratings.txt") -> dict:
             # cheack EOF
             if not username:
                 break
-            ratings = f.readline().strip().split(' ')
-            # convert ratings list to dict
-            ratings = {books[i]: int(ratings[i]) for i in range(len(ratings)) if ratings[i] != '0'}
-            ratings[username] = ratings
+            ratings_l = f.readline().strip().split(' ')
+            ratings[username] = ratings_l_to_d(ratings_l, books)
     return ratings
 
 
@@ -47,14 +52,38 @@ def get_input(output_filename="output.txt") -> tuple:
 
 
 # III. ADD USER
-def get_rcm(n: int) -> list:
-    """Get n recommendations from the user"""
-    pass
+def get_ratings_l(books: list, rcm_p=0.2) -> list:
+    """Get n ratings from the user."""
+
+    print("\nRATE BOOKS \nScale (worst to best): -5, -3, 0, 1, 3, 5\n")
+    # initialize
+    books_len = len(db['books'])
+    rcm_n = int(books_len * rcm_p)  # rcm_p = 20% as specified
+    ratings_l = ['0'] * books_len
+
+    # ask for rcm_n ratings and save it in the list
+    for i in range(rcm_n):
+        book_i = randrange(books_len)
+        # generate new book index until unrated
+        while ratings_l[book_i] != '0':
+            book_i = randrange(books_len)
+        book = books[book_i]
+        rating = input(book[0] + ", " + book[1] + ": ")
+        ratings_l[book_i] = rating
+    return ratings_l
 
 
-def add_user(username: str, rcm: list, db="db"):
+def add_user(username: str, db: dict, ratings_filename="ratings.txt"):
     """Post user into the database and write into the file."""
-    pass
+    ratings_l = get_ratings_l(db['books'])
+
+    # add user to ratings file
+    with open(ratings_filename, 'a') as f:
+        f.write(username + '\n' + ' '.join(ratings_l) + '\n')
+        
+    # add user to database
+    db['ratings'][username] = ratings_l_to_d(ratings_l, db['books'])
+
 
 
 # IV.  CALCULATE SIMILARITY
@@ -68,8 +97,8 @@ def calculate_similarity(username: str, db="db") -> list:
     pass
 
 
-# V.   GET RECCOMENDATIONS
-def get_rcm(similarity: list, db="db") -> dict:
+# V.   CALCULATE RECCOMENDATIONS
+def calculate_rcm(similarity: list, db="db") -> dict:
     """Crete the dict of books recommended by various users, based on the similarity."""
     pass
 
@@ -83,3 +112,5 @@ def recommendations():
 if __name__ == "__main__":
     db = read_files()
     user_input = get_input() 
+    if user_input[0] not in db['ratings']:
+        add_user(user_input[0], db)
