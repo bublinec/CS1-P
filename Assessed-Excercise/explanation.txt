@@ -1,7 +1,7 @@
 1. Describe any complex data structures you used and explain why you think they are suitable.
 2. How did you break down the problem into sub-problems? Explain the sub-problems and explain how they are organized in recommendations.py.
 
-I.   GET DATA
+I.   READ DATA
     
     All the data are stored in files and it would be inefficient to work with files all the time.
     So the first step when we run the program is to retrieve the data from files and store
