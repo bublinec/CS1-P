@@ -12,44 +12,48 @@ I.   GET DATA
         I decided to create a small database using dictionary for this problem. 
         The dictionary has two pairs (tables):
 
-        books:  list of lists, where each book is represented as list, 
+        books : list of lists, where each book is represented as list, 
                 containning two strings: author, title. Author and the title 
                 are two separate pieces of information about the book,
-                therfore it is a good practice to keep it sepearete from begining
+                therefore it is a good practice to keep it sepearete from begining
 
 
-        users:  dictionary, where username are keys and ratings are lists
-                (we have pairs of information,
-                order is not imoprtant for us, 
-                however we will take advantage of quick retrieval)
+        users : dictionary with the pairs:  username : ratings 
+                ratings is also a dictionary with pairs (title : rating)
+
+                It is much clearer to keep ratings in a dictionary.
+                We also avoid redundacy in case the there are many books
+                and the user has red just a few of them. 
+                Also we can take the advantage of quick retrieval.
+
 
         NOTE:
-        It would be more appropriate to choose more complex data structures if we were cosidering to add
-        more features in the future.
+        It would be more appropriate to choose more complex data structures
+        if we were cosidering to add more features in the future.
 
         The best practice would be to represent each user and each book as an OBJECT.
-        Where username, ratings would be an attribute of user. Ideally, ratings would be stored in 
-        a dictionary with pairs book:rating - that would be very clear representation.
 
-        However, in our case, with only one functionality, this is not necessary and it would only cause
-        more confusion (If we wanted to really create a usable app we would use a real database anyway).
+        However, in our case with limited functionality, this is not necessary and it would only cause
+        confusion (If we wanted to really create a usable app we would use a real database anyway).
 
 
 II.  GET INPUT
 
-    The secon step is to actually find out the user's intentions - the input/command.
-    This will be handled by get_input function (operates through the command line interface).
-
+    The second step is to actually find out the user's intentions - the input/command.
     First we ask for the username, and the number of recommendations required. 
     
-    If the user is already in the database, we proceed to the step IV.
+    * This is handled by get_input function (operates through the command line interface).
+    * Function print_input prints the comunication to the output file
+
+    If the user is already in the database, we skipt the III. step and proceed to the step IV.
 
 
 III. ADD USER
 
-    In order to apply the similarity algorithm we first need to get the ratings from the new user. 
-    This will be handled by add_user function which will add the new user into our database
-    and also into the ratings.txt file.
+    In order to apply the similarity algorithm we first need to get the ratings
+    from the new user and add it into the database and the ratings file. 
+
+    * This is handled by add_user function.
 
 
 IV.  CALCULATE SIMILARITY
@@ -57,44 +61,24 @@ IV.  CALCULATE SIMILARITY
     Calculate this similarity with each user, using the similarity algorithm
     and store it in a list.
 
-    This will be handled by the function calculate_similarity.
-    This will also require the dot_product funtion 
-    (which I consider more efficient to code myself in this case).
+    * This is handled by the function calculate_similarity.
+    * This will also require the to import dot_product function.
+    * Finally function print_similarity prints it into the console and outpur file.
 
 
 V.   GET RECOMMENDATIONS
 
     Get the recommendations based on the similarity list.
-    This will be handeld by get_recommendations function.
+    * This is handeld by get_rcm function.
+    * Finally function print_rcm prints it into teh console and the output file.
 
 
-VI.  GENERATE OUTPUT
-
-    The next step step is to generate a string to display.
-    This output will be than printed on the screen and written into the output.txt.
-    This will be handled by the get_output function.
-
-
-    
-
-
-    
- 
-    
-
-
-
-
-
-
+Whole program is encapsuled in a recommendation function (procedure).
 
 
 
 
 3. Are there any parts of your code that you think are difficult to understand? if yes, explain them here. 
-
-
-
 
 
 
