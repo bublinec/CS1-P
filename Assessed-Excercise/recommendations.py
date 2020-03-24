@@ -40,29 +40,18 @@ def read_files(books_filename="books.txt", ratings_filename="ratings.txt") -> di
     return db
 
 
-# II.  GET INPUT
-def get_input(output_filename="output.txt") -> tuple:
-    """
-    Get the username and number of recommendations from the user,
-    using command line and return it as a tuple: (username, rcm_n).
-    """
-    username = input("Username: ")
-    rcm_n = int(input("Reccomendation number: "))
-    return(username, rcm_n)
-
-
 # III. ADD USER
-def get_ratings_l(books: list, rcm_p=0.2) -> list:
+def get_ratings_l(books: list, ratings_percentage=0.2) -> list:
     """Get n ratings from the user."""
 
     print("\nRATE BOOKS \nScale (worst to best): -5, -3, 0, 1, 3, 5\n")
     # initialize
-    books_len = len(db['books'])
-    rcm_n = int(books_len * rcm_p)  # rcm_p = 20% as specified
+    books_len = len(books)
+    ratings_n = int(books_len * ratings_percentage)
     ratings_l = ['0'] * books_len
 
-    # ask for rcm_n ratings and save it in the list
-    for i in range(rcm_n):
+    # ask for ratings_n ratings and save it in the list
+    for i in range(atings_n):
         book_i = randrange(books_len)
         # generate new book index until unrated
         while ratings_l[book_i] != '0':
@@ -102,26 +91,49 @@ def calculate_similarity_l(username: str, db) -> list:
                 similarity += cur_book_rating * ratings[cur_book]
         # finally append the tuple (user, similarity) to the list
         similarity_l.append((cur_username, similarity))
-    similarity_l.sort(key=lambda x: x[1])
+    similarity_l.sort(key=lambda x: x[1], reverse=True)
     return similarity_l
 
 
-# V.   CALCULATE RECCOMENDATIONS
-def calculate_rcm(similarity_l: list, db) -> dict:
+# V.   GET RECCOMENDATIONS
+def get_rcm(username: str, similarity_l: list, db: dict, rcm_n=10) -> dict:
     """Crete the dict of books recommended by various users,
      based on the similarity list.
      """
-
+    rcm = {}
+    cur_rcm_n = 0
+    for cur_user in similarity_l:
+        cur_user_rcm_l = []
+        for cur_book, cur_rating in db['ratings'][cur_user[0]].items():
+            # if the user we are recommending to alread red the book,
+            # or it is already recommended, continue
+            if (cur_book in db['ratings'][username]) or (cur_book in rcm.values()):
+                continue
+                # if the book is well rated, add to the list of recommended by the current user
+                # increase the number of recommended
+            if (cur_rating == 3) or (cur_rating == 5):
+                cur_user_rcm_l.append(cur_book)
+                cur_rcm_n += 1
+                # return dict if we have enough
+                if rcm_n <= cur_rcm_n:
+                    rcm[cur_user[0]] = cur_user_rcm_l
+                    return rcm
+        rcm[cur_user[0]] = cur_user_rcm_l
 
 
 # MAIN FUNCTION
 def recommendations():
     db = read_files()
-    user_input = get_input() 
-    if user_input[0] not in db['ratings']:
-    add_user(user_input[0], db)
-    similarity_l = calculate_similarity_l(user_input[0], db)
-    print(similarity_l)
+
+    # II.  GET INPUT - we really don't need function for this
+    username = input("Username: ")
+    rcm_n = int(input("Reccomendation number: "))
+
+    if username not in db['ratings']:
+        add_user(username, db)
+    similarity_l = calculate_similarity_l(username, db)
+    rcm = get_rcm(username, similarity_l, db, rcm_n)
+    print(rcm)
 
 
 if __name__ == "__main__":
