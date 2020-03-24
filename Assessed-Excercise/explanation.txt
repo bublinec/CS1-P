@@ -23,7 +23,7 @@ I.   READ DATA
                   ratings is also a dictionary with pairs (title : rating)
 
                   It is much clearer to keep ratings in a dictionary.
-                  We also avoid redundacy in case the there are many books
+                  We also avoid redundacy in case that there are many books
                   and the user has red just few of them. 
                   Also we can take the advantage of quick lookup.
 
@@ -48,6 +48,7 @@ III. ADD USER
     In order to apply the similarity algorithm we first need to get the ratings
     from the new user and add it into the database and the ratings file. 
 
+
 IV.  CALCULATE SIMILARITY
 
     Calculate this similarity with each user, using the similarity algorithm
@@ -61,7 +62,7 @@ V.   GET RECOMMENDATIONS
 
 VI.  GENERATE OUTPUT
 
-    Generate and print ouput to screen, and into the output fiel
+    Finally generate and print ouput to screen, and into the output file.
 
 
 VIII.MAIN FUNCTION
@@ -71,7 +72,17 @@ VIII.MAIN FUNCTION
 
 3. Are there any parts of your code that you think are difficult to understand? if yes, explain them here. 
 
+    I believe the only confusing part can be calculating the similarity, and getting the recommendations,
+    as there is quite a lot variables with similar names (eg. cur_user, cur_rating...). 
+    It only because I am using dictionaries for ratings - but I believe it is more efficient and wroth it.
+    However I have commented almost every line, so I will not explain it here second time.
 
 
+4. Which possible errors could occur and how have you handled them? Explain whether you have used exception handling or defensive programming and use examples if you like.
 
-4. Which possible errors could occur and how have you handled them? Explain whether you have used exception handling or defensive programming and use examples if you like.  
+    POSSIBLE ERRORS:
+
+    a) reading files - the file doesn't exist when trying to open - defensive approach, using os
+    b) some of the ratings is not an integere - exception 
+    c) input for recommendation number is not a positive int - defensive approach (isdigit), while loop
+    d) rating input when adding a new user has too be in the give scale - defensive approach, while loop

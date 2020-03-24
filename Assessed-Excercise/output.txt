@@ -1,112 +1,110 @@
-Username: Juraj
+Username: John
 Reccomendation number: 10
 
 SIMILARITIES:
 
-  clipper : 83
-  Jim C : 80
-  Cust5 : 80
-  Mike : 80
-  andrew : 79
-  Tiffany : 73
-  Cust8 : 70
-  Claire : 70
-  Ben : 68
-  joe : 68
-  hidan : 65
-  matt c : 61
-  Moose : 59
-  Megan : 59
-  Hamza ALi : 58
-  Nathan : 58
-  Cust2 : 55
-  snoosh : 55
-  Sidney : 55
-  Zax : 50
-  Ocelot : 49
-  Cust10 : 49
-  Cust1 : 45
-  Francois : 45
-  Jaluka : 40
-  Sanity : 40
-  Boxxy : 40
-  Mike Williams : 38
-  Strongbad : 35
-  Mark : 35
-  Rosanna : 33
-  Iren : 30
-  crom : 30
-  YJAM : 30
-  McLean : 30
-  Shannon : 30
-  ROFLOL : 30
-  Peter : 30
-  Cust7 : 25
-  ender : 25
-  I. Ned : 23
-  KeeLed : 23
-  Hideo : 21
-  Priscilla : 20
-  Martin : 20
-  SubRia : 19
-  Brian : 18
-  Douglas Anderson : 18
-  Anna-Carol : 18
-  ma : 15
-  Harry Potter : 15
+  Shannon : 75
+  Cust8 : 69
+  Megan : 69
+  Cust1 : 60
+  Francois : 60
+  ROFLOL : 60
+  Mike Williams : 54
+  Ben : 48
+  matt c : 48
+  Mike : 48
+  Sidney : 48
+  andrew : 45
+  hidan : 45
+  Cust7 : 42
+  Brian : 42
+  Douglas Anderson : 42
+  Cust10 : 39
+  joe : 39
+  Priscilla : 39
+  Zax : 39
+  McLean : 39
+  Iren : 33
+  KeeLed : 30
+  Cust6 : 27
+  Pablo Sanchez : 27
+  Mark : 27
+  Jim C : 24
+  ender : 24
+  Zachary : 24
+  Juraj : 24
+  Cust2 : 21
+  Cust3 : 21
+  Rosanna : 21
+  YJAM : 18
+  NuNu : 18
+  Moose : 15
+  Cust5 : 15
+  Ocelot : 15
+  crom : 15
+  Dude : 15
+  Anna-Carol : 15
   Leslie : 15
-  Pablo Sanchez : 15
   NaRwHaLs : 15
-  sage32 : 14
-  Rudy A : 14
-  ParseClaws : 14
-  NuNu : 14
-  Reuven : 9
-  Dude : 9
-  Cust6 : 8
-  Don Wang : 8
-  James : 6
-  Huxil : 5
-  Cust3 : 0
+  Boxxy : 15
+  Peter : 15
+  Harry Potter : 12
+  Don Wang : 12
+  Ella : 12
+  ParseClaws : 12
+  Hamza ALi : 12
+  dencellia : 12
+  Nathan : 12
+  Cust9 : 9
+  Apollo : 9
+  Jaluka : 9
+  Sanity : 9
+  Brix : 9
+  clipper : 9
+  Huxil : 9
+  Leah : 9
+  Rudy A : 3
+  Hideo : 3
+  David : 3
   Cust4 : 0
-  Leah : 0
-  David : 0
-  Zachary : 0
-  Apollo : -1
-  Albus Dumbledore : -6
-  Brix : -9
-  McLovin : -10
-  Jeremy : -10
-  Alexandra : -10
-  Sam : -11
-  Cust9 : -12
-  Tony : -12
-  dencellia : -12
-  J-Rok : -15
-  chrispeh : -16
-  Joshua : -16
-  Cedric Jones : -22
-  Scream : -25
-  Rudy Ann : -34
-  Ella : -35
+  ma : 0
+  I. Ned : 0
+  sage32 : 0
+  Cedric Jones : 0
+  snoosh : -3
+  Claire : -3
+  Strongbad : -6
+  SubRia : -6
+  Sam : -9
+  James : -9
+  chrispeh : -15
+  McLovin : -15
+  Rudy Ann : -15
+  Jeremy : -15
+  Alexandra : -15
+  Reuven : -18
+  Martin : -18
+  J-Rok : -21
+  Albus Dumbledore : -24
+  Tiffany : -27
+  Joshua : -30
+  Scream : -30
+  Tony : -72
 
 
 RECOMMENDATIONS:
 
-Byclipper:
+By Shannon:
 
   The Hitchhiker's Guide To The Galaxy by Douglas Adams
-  A Great and Terrible Beauty by Libba Bray
+  The Da Vinci Code by Dan Brown
+  The Princess Diaries by Meg Cabot
+  Inkheart by Cornelia Funke
+  The Lion the Witch and the Wardrobe by C S Lewis
+  My Sister's Keeper by Jodi Picoult
   The Golden Compass by Philip Pullman
   Harry Potter Series by J.K. Rowling
-  The Hobbit by J R R Tolkien
-
-ByJim C:
-
-  The Hitchhiker's Guide To The Galaxy by Douglas Adams
-  Watership Down by Richard Adams
-  Foundation Series by Isaac Asimov
-  Brave New World by Aldous Huxley
-  Flowers For Algernon by Daniel Keyes
+  Holes by Louis Sachar
+  The Lord of the Rings by J R R Tolkien
 
 
