@@ -1,4 +1,4 @@
-1. Describe any complex data structures you used and explain why you think they are suitable.
+1. Describe any complex data structures you used and explain why you think they are suitable. (answered below)
 2. How did you break down the problem into sub-problems? Explain the sub-problems and explain how they are organized in recommendations.py.
 
 I.   READ DATA
@@ -59,7 +59,12 @@ V.   GET RECOMMENDATIONS
     Get the recommendations based on the similarity list.
 
 
-MAIN FUNCTION
+VI.  GENERATE OUTPUT
+
+    Generate and print ouput to screen, and into the output fiel
+
+
+VIII.MAIN FUNCTION
 
     Whole program is encapsuled in a recommendation function (procedure).
 

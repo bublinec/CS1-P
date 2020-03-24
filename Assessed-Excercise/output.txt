@@ -1,0 +1,112 @@
+Username: Juraj
+Reccomendation number: 10
+
+SIMILARITIES:
+
+  clipper : 83
+  Jim C : 80
+  Cust5 : 80
+  Mike : 80
+  andrew : 79
+  Tiffany : 73
+  Cust8 : 70
+  Claire : 70
+  Ben : 68
+  joe : 68
+  hidan : 65
+  matt c : 61
+  Moose : 59
+  Megan : 59
+  Hamza ALi : 58
+  Nathan : 58
+  Cust2 : 55
+  snoosh : 55
+  Sidney : 55
+  Zax : 50
+  Ocelot : 49
+  Cust10 : 49
+  Cust1 : 45
+  Francois : 45
+  Jaluka : 40
+  Sanity : 40
+  Boxxy : 40
+  Mike Williams : 38
+  Strongbad : 35
+  Mark : 35
+  Rosanna : 33
+  Iren : 30
+  crom : 30
+  YJAM : 30
+  McLean : 30
+  Shannon : 30
+  ROFLOL : 30
+  Peter : 30
+  Cust7 : 25
+  ender : 25
+  I. Ned : 23
+  KeeLed : 23
+  Hideo : 21
+  Priscilla : 20
+  Martin : 20
+  SubRia : 19
+  Brian : 18
+  Douglas Anderson : 18
+  Anna-Carol : 18
+  ma : 15
+  Harry Potter : 15
+  Leslie : 15
+  Pablo Sanchez : 15
+  NaRwHaLs : 15
+  sage32 : 14
+  Rudy A : 14
+  ParseClaws : 14
+  NuNu : 14
+  Reuven : 9
+  Dude : 9
+  Cust6 : 8
+  Don Wang : 8
+  James : 6
+  Huxil : 5
+  Cust3 : 0
+  Cust4 : 0
+  Leah : 0
+  David : 0
+  Zachary : 0
+  Apollo : -1
+  Albus Dumbledore : -6
+  Brix : -9
+  McLovin : -10
+  Jeremy : -10
+  Alexandra : -10
+  Sam : -11
+  Cust9 : -12
+  Tony : -12
+  dencellia : -12
+  J-Rok : -15
+  chrispeh : -16
+  Joshua : -16
+  Cedric Jones : -22
+  Scream : -25
+  Rudy Ann : -34
+  Ella : -35
+
+
+RECOMMENDATIONS:
+
+Byclipper:
+
+  The Hitchhiker's Guide To The Galaxy by Douglas Adams
+  A Great and Terrible Beauty by Libba Bray
+  The Golden Compass by Philip Pullman
+  Harry Potter Series by J.K. Rowling
+  The Hobbit by J R R Tolkien
+
+ByJim C:
+
+  The Hitchhiker's Guide To The Galaxy by Douglas Adams
+  Watership Down by Richard Adams
+  Foundation Series by Isaac Asimov
+  Brave New World by Aldous Huxley
+  Flowers For Algernon by Daniel Keyes
+
+

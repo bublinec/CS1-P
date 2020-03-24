@@ -51,13 +51,13 @@ def get_ratings_l(books: list, ratings_percentage=0.2) -> list:
     ratings_l = ['0'] * books_len
 
     # ask for ratings_n ratings and save it in the list
-    for i in range(atings_n):
+    for i in range(ratings_n):
         book_i = randrange(books_len)
         # generate new book index until unrated
         while ratings_l[book_i] != '0':
             book_i = randrange(books_len)
         book = books[book_i]
-        rating = input(book[0] + ", " + book[1] + ": ")
+        rating = input(book[1] + ' by ' + book[0] + ": ")
         ratings_l[book_i] = rating
     return ratings_l
 
@@ -121,19 +121,62 @@ def get_rcm(username: str, similarity_l: list, db: dict, rcm_n=10) -> dict:
         rcm[cur_user[0]] = cur_user_rcm_l
 
 
+# VI.  GENERATE OUTPUT
+def generate_similarity_msg(similarity_l: list) -> str:
+    msg = "\nSIMILARITIES:\n\n"
+    for user in similarity_l:
+        msg += '  ' + user[0] + ' : ' + str(user[1]) + '\n'
+    return msg
+
+
+def generate_rcm_msg(rcm: dict) -> str:
+    msg = "\n\nRECOMMENDATIONS:\n\n"
+    for user, rcms in rcm.items():
+        msg += 'By' + user + ':\n\n'
+        for book in rcms:
+            msg += '  ' + book[1] + ' by ' + book[0] + '\n' 
+        msg += '\n'
+    return msg
+
+
+def generate_output_file(content: list, output_filename="output.txt"):
+    """Generate output file with containing all strings in msgs list divaded by newline."""
+    with open(output_filename, 'w') as f:
+        print(''.join(content), file=f)
+
+
 # MAIN FUNCTION
 def recommendations():
+    # I. READ FILES
     db = read_files()
-
     # II.  GET INPUT - we really don't need function for this
-    username = input("Username: ")
-    rcm_n = int(input("Reccomendation number: "))
-
+    username_request_msg = "Username: "
+    rcm_n_request_msg = "Reccomendation number: "
+    username = input(username_request_msg)
+    rcm_n = int(input(rcm_n_request_msg))
+    # III. ADD USER
     if username not in db['ratings']:
         add_user(username, db)
+    # IV.  CALCULATE SIMILARITY
     similarity_l = calculate_similarity_l(username, db)
+    # V.   GET RECOMMENDATIONS
     rcm = get_rcm(username, similarity_l, db, rcm_n)
-    print(rcm)
+    # GENERATE OUTPUT
+    similarity_msg = generate_similarity_msg(similarity_l)
+    rcm_msg = generate_rcm_msg(rcm)
+    print(similarity_msg)
+    print(rcm_msg)
+
+    output_content = [
+        username_request_msg,
+        username + '\n',
+        rcm_n_request_msg,
+        str(rcm_n) + '\n',
+        similarity_msg,
+        rcm_msg
+    ]
+
+    generate_output_file(output_content)
 
 
 if __name__ == "__main__":
